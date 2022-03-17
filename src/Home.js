@@ -1,19 +1,21 @@
+import { useState } from "react";
+
 const Home = () => {
     
-    const handelClick = (e) => {
-        console.log("Hello ninjas", e)
+    // using useState hook, we can change the value of a
+    // variable in run time and it will be reactive, meaning that it will 
+    // get rendered again where ever it is being used
+    const [myName, setMyName] = useState("mario")
+
+    const handelClick = () => {
+        setMyName("Shivansh")
     }
-    
-    const handelClickAgain = (name, e) => {
-        console.log("Hello " + name , e.target)
-    }
-    
 
     return (
         <div className="home">
             <h2>Homepage</h2>
+            <p>{myName}</p>
             <button onClick={handelClick}>Click me</button>
-            <button onClick={ (e) => handelClickAgain("mario",e)}>Click me Again</button>
         </div>
       );
 }
