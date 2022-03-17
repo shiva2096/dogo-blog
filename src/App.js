@@ -1,4 +1,6 @@
 import './App.css';
+import Navbar from './Navbar'
+import Home from './Home'
 
 // This is JSX Template
 function App() {
@@ -8,18 +10,9 @@ function App() {
   const link = "https://www.google.com/"
   return (
     <div className="App">
+      <Navbar />
       <div className="content">
-        <h1>
-          App Content
-        </h1>
-
-        <p>{msg}</p>
-        <p>{10}</p>
-        <p>{"Hello World"}</p>
-        <p>{ [1,2,3,4,5] }</p>
-        <p>{Math.random() * 10}</p>
-
-        <a href={link}>Google Home</a>
+        <Home />
       </div>
     </div>
   );
