@@ -7,16 +7,19 @@ const Home = () => {
         { title: 'Welcome party!', body: 'lorem ipsum...', author: 'yoshi', id: 2 },
         { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
     ])
-    
-    // blogs.map iterates through each blog in blogs
-    // key is mandatory, this way react know about which element is being changed
-    // then we build a template that applies for each element in loop
+    // Function that filters based on id 
+    const handleDelete = (id) => {
+        const newBlogs = blogs.filter(blog => blog.id !== id);
+        setBlogs(newBlogs);  // value inside blogs is now updated by newBlogs
+    }
+
     return (
         <div className="home">      
-            <BlogList blogs={blogs} title="All Blogs!!"/>
-            <BlogList blogs={blogs.filter((blog) => blog.author==='mario')} title="Mario's Blogs" />
+            <BlogList blogs={blogs} title="All Blogs!!" handleDelete={handleDelete}/>
+            <BlogList blogs={blogs.filter((blog) => blog.author==='mario')} title="Mario's Blogs" handleDelete={handleDelete}/>
         </div>
       );
 }
  
+
 export default Home;
