@@ -2,7 +2,7 @@
 // using props to fetch data
 // BlogList component can be used to display lists
 // in our templated format
-const BlogList = ({blogs, title, handleDelete}) => {
+const BlogList = ({blogs, title}) => {
 
     
     // blogs.map iterates through each blog in blogs
@@ -15,7 +15,6 @@ const BlogList = ({blogs, title, handleDelete}) => {
                 <div className="blog-preview" key={blog.id} >
                     <h2>{ blog.title }</h2>
                     <p>Written by { blog.author }</p>
-                    <button onClick={() => handleDelete(blog.id)}>delete blog</button>
                 </div>
             ))}
         </div>
