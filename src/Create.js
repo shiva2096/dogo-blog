@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
   const [title, setTitle] = useState('Enter blog Title');
   const [body, setBody] = useState('Enter blog content Here');
   const [author, setAuthor] = useState('mario');
   const [isPending, setIsPending] = useState(false);
+  // using navigate to redirect to home page after blog has been added
+  const navigate = useNavigate();
 
   // using handle submit as a function to fire a post request
   const handleSubmit = (e) => {
@@ -20,6 +23,7 @@ const Create = () => {
     }).then(() => {
       console.log('new blog added');
       setIsPending(false);
+      navigate('/');
     })
   }
 
