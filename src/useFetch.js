@@ -7,9 +7,11 @@ const useFetch = (url) =>{
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        const abortCont = new AbortController();
+        
         // setting a 1sec delay to see the Loading message
         setTimeout(()=> {
-            fetch(url)
+            fetch(url , {signal: abortCont.signal})
             .then(res => {
                 if(!res.ok){
                     throw Error("Colud not fetch from the resource!!");
@@ -23,10 +25,17 @@ const useFetch = (url) =>{
                 setError(null)       // This will set the error variable to null
             })
             .catch(err => {
-                setIsPending(false)
-                setError(err.message)
+                if (err.name === "AbortError"){
+                    console.log("fetch aborted")
+                }
+                else{
+                    setIsPending(false)
+                    setError(err.message)
+                }
             });
         }, 1000)
+
+        return () => abortCont.abort();
 
     }, [url]);
 
