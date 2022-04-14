@@ -5,13 +5,24 @@
 // After that we are using our custom hook to fetch data for that id
 
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "./useFetch";
 
 const BlogDetails = () => {
    
     const {id} = useParams();
     const {data:blog, isPending, error } = useFetch('http://localhost:8000/blogs/'+ id);
+    const navigate = useNavigate();
+
+
+    // adding a function to delete a blog by sending a delete request
+    const handleClick = () => {
+        fetch('http://localhost:8000/blogs/' + blog.id, {
+          method: 'DELETE'
+        }).then(() => {
+            navigate('/');
+        }) 
+      }
 
     return (
         <div className="blog-details">
@@ -22,6 +33,7 @@ const BlogDetails = () => {
                     <h2>{blog.title}</h2>
                     <p>Written by {blog.author}</p>
                     <div>{blog.body}</div>
+                    <button onClick={handleClick}>Delete</button>
                 </article>
             )}
             
