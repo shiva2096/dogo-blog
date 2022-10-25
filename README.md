@@ -6,6 +6,8 @@ From there they have an option to delete the blog, or they can go back to home p
 Another option on landing page is to create a new blog, select the author and title, and then publish.
 
 ### Tools Used
+<img src="https://user-images.githubusercontent.com/26687177/197864963-35c0db38-4f94-45fb-9b4e-c9c0a4e4f2b2.png" alt="react" style="width:80px;"/>
+
 ![react](https://user-images.githubusercontent.com/26687177/197864963-35c0db38-4f94-45fb-9b4e-c9c0a4e4f2b2.png =100x20)
 ![javascript](https://user-images.githubusercontent.com/26687177/197865045-265b1b28-7e0f-4af0-a751-ea6ebbd24f90.png =100x20)
 ![html](https://user-images.githubusercontent.com/26687177/197864976-6267504f-cb4b-4c42-809d-5ee15f62b279.png =100x20)
